@@ -25,7 +25,8 @@ RUN apt-get install -y \
         php7.0-mcrypt \
         php7.0-zip \
         php-memcached \
-        php7.0-bcmath 
+        php7.0-bcmath \
+        php-mongodb
 
 # Install additional tools
 RUN apt-get install -y \

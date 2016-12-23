@@ -9,24 +9,32 @@ ENV LC_CTYPE=UTF-8
 ENV LANG=en_US.UTF-8
 ENV TERM xterm
 
+#add repo with newest PHP versions
+RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 # 
 RUN apt-get update 
 
 # Install PHP-CLI 7, some PHP extentions and some useful Tools with APT
 RUN apt-get install -y \
+        acl \
         mysql-client \
-        php7.0-mysql \
-        php7.0-cli \
-        php7.0-common \
-        php7.0-curl \
-        php7.0-json \
-        php7.0-xml \
-        php7.0-mbstring \
-        php7.0-mcrypt \
-        php7.0-zip \
+        php7.1-bcmath \
+        php7.1-cli \
+        php7.1-common \
+        php7.1-curl \
+        php7.0-gd \
+        php7.0-intl \
+        php7.1-json \
+        php7.1-mbstring \
+        php7.1-mcrypt \
+        php7.1-mysql \
+        php7.1-xml \
+        php7.1-zip \
+        php-imagick \
         php-memcached \
-        php7.0-bcmath \
-        php-mongodb
+        php-mongodb \
+        php-redis \
+        php-zip
 
 # Install additional tools
 RUN apt-get install -y \

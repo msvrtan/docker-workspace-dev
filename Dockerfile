@@ -14,7 +14,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 # 
 RUN apt-get update 
 
-# Install PHP-CLI 7, some PHP extentions and some useful Tools with APT
+# Install PHP 7.1, some PHP extentions and some useful Tools with APT
 RUN apt-get install -y \
         acl \
         mysql-client \
@@ -43,7 +43,7 @@ RUN apt-get install -y \
         joe
 
 # Add a symbolic link for Node
-RUN ln -s /usr/bin/nodejs /usr/bin/node
+#RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 # Add convenience aliaseses
 RUN echo "alias phpunit='./bin/phpunit'" >> ~/.bashrc
@@ -54,8 +54,7 @@ RUN echo 'alias cc="bin/console cache:clear"' >> ~/.bashrc
 
 # Install Composer
 RUN curl -s http://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/ \
-    && echo "alias composer='/usr/local/bin/composer.phar'" >> ~/.bashrc
+    && mv composer.phar /usr/local/bin/composer 
 
 # Source the bash
 RUN . ~/.bashrc

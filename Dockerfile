@@ -47,9 +47,18 @@ RUN apt-get install -y \
 #RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 # Add convenience aliaseses
-RUN echo "alias phpunit='./bin/phpunit'" >> ~/.bashrc
-RUN echo "alias phpspec='./bin/phpspec'" >> ~/.bashrc
-RUN echo "alias behat='./bin/behat'" >> ~/.bashrc
+RUN echo "alias test='./vendor/bin/phing test'" >> ~/.bashrc
+RUN echo "alias phpunit='./vendor/bin/phpunit'" >> ~/.bashrc
+RUN echo "alias phpspec='./vendor/bin/phpspec'" >> ~/.bashrc
+RUN echo "alias behat='./vendor/bin/behat'" >> ~/.bashrc
+RUN echo "alias fix-codestandards='./vendor/bin/phing fix-codestandards'" >> ~/.bashrc
+
+RUN echo "alias migrations-diff='php bin/console doctrine:migrations:diff'" >> ~/.bashrc
+RUN echo "alias migrate='php bin/console doctrine:migrations:migrate'" >> ~/.bashrc
+
+RUN echo "alias refresh-dev-db='./vendor/bin/phing refresh-dev-db'" >> ~/.bashrc
+RUN echo "alias refresh-test-db='./vendor/bin/phing refresh-test-db'" >> ~/.bashrc
+
 RUN echo 'alias sf="bin/console"' >> ~/.bashrc
 RUN echo 'alias cc="bin/console cache:clear"' >> ~/.bashrc
 
